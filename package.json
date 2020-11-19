@@ -1,0 +1,37 @@
+{
+  "name": "demoExternalAPI",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^4.3.0",
+    "@sap/cds-dk": "^1.0.0",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.55",
+    "@sap/cds-runtime": "^2.6.7",
+    "cdse": "^1.1.1",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "sqlite3": "^5"
+  },
+  "scripts": {
+    "start": "npx cds run"
+  },
+  "cds": {
+    "requires": {
+      "NorthWind": {
+        "kind": "odata",
+        "model": "srv/external/NorthWind",
+        "credentials": {
+          "url": "https://services.odata.org/Experimental/OData/OData.svc"
+        }
+      },
+      "API_BUSINESS_PARTNER": {
+        "kind": "odata",
+        "model": "srv/external/API_BUSINESS_PARTNER"
+      }
+    }
+  }
+}
